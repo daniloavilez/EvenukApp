@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Evenuk</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="error_field_required">Esse campo é obrigatório</string>
+    <string name="error_incorrect_password">Essa senha está incorreta</string>
+    <string name="error_invalid_email">Esse endereço de email é inválido</string>
+    <string name="error_invalid_password">Essa senha é muito pequena</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Senha</string>
+    <string name="register">Registrar-se</string>
+    <string name="forgot_your_password">Esqueceu a senha?</string>
+    <string name="hint_search">O QUE PROCURA?</string>
+    <string name="menu_search">Procurar</string>
+    <string name="configuration">Configurações</string>
+    <string name="participate">Participar</string>
+    <string name="interest">INTERESSE</string>
+</resources>

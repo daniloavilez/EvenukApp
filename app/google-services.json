@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "74660619851",
+    "firebase_url": "https://evenuk-941d6.firebaseio.com",
+    "project_id": "evenuk-941d6",
+    "storage_bucket": "evenuk-941d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74660619851:android:3804d208eb700804",
+        "android_client_info": {
+          "package_name": "com.evenuk.evenukapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74660619851-qars491i15ndp8u5ptqedibqbglg4dju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.evenuk.evenukapp",
+            "certificate_hash": "AC12A3D1851FA404C5324750CC482AE3122CB90D"
+          }
+        },
+        {
+          "client_id": "74660619851-scc3nrb83gmnmb26rfso7naaijaqghnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf82nJBieRkbOJtVd4jWGDKIVanzOOaUs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74660619851-scc3nrb83gmnmb26rfso7naaijaqghnp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

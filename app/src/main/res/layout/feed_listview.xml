@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewAuthorEvent"
+            android:layout_gravity="start"
+            android:text="Danilo"
+            android:layout_alignParentStart="true"
+            android:paddingTop="7pt"
+            android:paddingLeft="4pt"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.TextView" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:layout_gravity="end"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageViewEvent"
+        android:src="@drawable/evernuk_logo" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="50pt"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEventTitle"
+            android:layout_gravity="start"
+            android:text="Teste"
+            android:layout_alignParentStart="true"
+            android:paddingTop="4pt"
+            android:paddingLeft="4pt"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.TextView" />
+
+        <TextView
+            android:layout_width="50pt"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEventDate"
+            android:layout_gravity="end"
+            android:layout_alignParentEnd="true"
+            android:text="15/02/2016"
+            android:paddingTop="4pt"
+            android:paddingRight="4pt"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.TextView" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textViewEventDescription"
+        android:text="Lorem ipsum mussumzis do cacilds, eits muits lokis androids, czech republic fnz far far away"
+        android:paddingTop="6pt"
+        android:paddingLeft="4pt" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_comment"
+            android:layout_alignParentStart="true"
+            android:paddingTop="7pt"
+            android:paddingLeft="4pt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewComments"
+            android:text="1 comentário"
+            android:paddingTop="10pt"
+            android:paddingLeft="23pt" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_like"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="7pt"
+            android:paddingRight="48pt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewLikes"
+            android:text="140 gostaram"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="10pt"
+            android:paddingRight="4pt" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7pt">
+
+        <Button
+            android:layout_width="80pt"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonParticipate"
+            android:text="@string/participate"
+            android:background="@color/colorText"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="4pt"
+            android:layout_marginTop="7pt" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="7pt" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="@string/interest"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="14pt"
+            android:paddingRight="4pt" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
