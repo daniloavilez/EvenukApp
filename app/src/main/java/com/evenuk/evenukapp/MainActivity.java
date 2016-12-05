@@ -39,10 +39,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
+import static java.text.SimpleDateFormat.*;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
@@ -50,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     private ListView listView;
     private AdapterFeedListView adapterFeedListView;
     private ArrayList<Feed> itens;
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
@@ -119,26 +125,6 @@ public class MainActivity extends AppCompatActivity
             listView.setOnItemClickListener(this);
 
             createListView();
-
-            /*database = FirebaseDatabase.getInstance();
-            Query reference = database.getReference("feeds").limitToLast(10);
-
-            reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot feedSnapshot : dataSnapshot.getChildren()) {
-                        Feed feed = feedSnapshot.getValue(Feed.class);
-                        Toast.makeText(getApplicationContext(), "The read successful",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(getApplicationContext(), "The read failed: " + databaseError.getMessage(),
-                            Toast.LENGTH_SHORT).show();
-                }
-            });*/
         } else {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
@@ -147,14 +133,42 @@ public class MainActivity extends AppCompatActivity
 
     private void createListView() {
         itens = new ArrayList<Feed>();
-        itens.add(new Feed(1, "Danilo Avilez", "Estilo Night", new Date(), "Lorem ipsum not have tilt", new ArrayList<Comentario>(), new ArrayList<String>()));
-        itens.add(new Feed(2, "Adriel Andrade", "Estilo Tanga", new Date(), "Lorem ipsum not have tilt", new ArrayList<Comentario>(), new ArrayList<String>()));
+        //itens.add(new Feed(1, "Danilo Avilez", "Estilo Night", new Date(), "Lorem ipsum not have tilt", new ArrayList<Comentario>(), new ArrayList<String>()));
+        //itens.add(new Feed(2, "Adriel Andrade", "Estilo Tanga", new Date(), "Lorem ipsum not have tilt", new ArrayList<Comentario>(), new ArrayList<String>()));
 
-        adapterFeedListView = new AdapterFeedListView(this, itens);
+        database = FirebaseDatabase.getInstance();
+        Query reference = database.getReference("feeds").limitToLast(10);
 
-        listView.setAdapter(adapterFeedListView);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot feedSnapshot : dataSnapshot.getChildren()) {
+                    Feed feed = new Feed();
+                    feed.setAutor((String) feedSnapshot.child("Autor").getValue());
+                    feed.setDescricaoEvento((String) feedSnapshot.child("DescricaoEvento").getValue());
+                    feed.setTituloEvento((String) feedSnapshot.child("TituloEvento").getValue());
+                    try {
+                        feed.setDataEvento(simpleDateFormat.parse(feedSnapshot.child("DataEvento").getValue().toString()));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
 
-        listView.setCacheColorHint(Color.TRANSPARENT);
+                    itens.add(feed);
+                }
+
+                adapterFeedListView = new AdapterFeedListView(getApplicationContext(), itens);
+
+                listView.setAdapter(adapterFeedListView);
+
+                listView.setCacheColorHint(Color.TRANSPARENT);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(), "The read failed: " + databaseError.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

@@ -27,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
     private View mLoginFormView;
+    private View mTypePersonView;
+    private String tipoPessoa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,33 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText passwordText = (EditText) findViewById(R.id.password_text);
 
         mLoginFormView = findViewById(R.id.loginFormRegister);
+        mTypePersonView = findViewById(R.id.typePersonRegister);
 
         Button registerButton = (Button) findViewById(R.id.register_button);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onRegister(emailText.getText().toString(), passwordText.getText().toString());
+            }
+        });
+
+        Button pessoaFisicaButton = (Button) findViewById(R.id.pessoaFisica);
+        pessoaFisicaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tipoPessoa = "F";
+                mTypePersonView.setVisibility(View.GONE);
+                mLoginFormView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        Button pessoaJuridicaButton = (Button) findViewById(R.id.pessoaJuridica);
+        pessoaJuridicaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tipoPessoa = "J";
+                mTypePersonView.setVisibility(View.GONE);
+                mLoginFormView.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -120,6 +143,16 @@ public class RegisterActivity extends AppCompatActivity {
             // and hide the relevant UI components.
             progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mLoginFormView.getVisibility() == View.VISIBLE) {
+            mLoginFormView.setVisibility(View.GONE);
+            mTypePersonView.setVisibility(View.VISIBLE);
+        } else if (mTypePersonView.getVisibility() == View.VISIBLE) {
+            super.onBackPressed();
         }
     }
 }

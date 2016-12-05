@@ -7,8 +7,7 @@ import java.util.List;
 public class Feed {
 
     public Feed() {
-        this.setComentarios(new ArrayList<Comentario>());
-        this.setGostar(new ArrayList<String>());
+
     }
 
     public Feed(Integer key, String autor, String TituloEvento, Date DataEvento, String DescricaoEvento, List<Comentario> Comentarios,
